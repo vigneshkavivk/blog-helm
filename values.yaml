@@ -2,7 +2,7 @@ ghost:
   image: ghost:5.80.0
   url: https://blog.cloudmasa.com
   mysqlUser: ghost
-  mysqlPassword: ghostpass
+  mysqlPassword: ghost123
   mysqlDatabase: ghostdb
   mysqlHost: ghost-mysql
 
