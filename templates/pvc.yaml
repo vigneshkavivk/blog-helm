@@ -1,3 +1,4 @@
+{{- if .Values.ghost.persistence.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -7,9 +8,13 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.ghost.persistence.size }}
+      storage: {{ .Values.ghost.persistence.size | default "5Gi" }}
+  storageClassName: {{ .Values.ghost.persistence.storageClass | default "gp2" }}
+{{- end }}
 
 ---
+
+{{- if .Values.mysql.persistence.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -19,4 +24,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.mysql.persistence.size }}
+      storage: {{ .Values.mysql.persistence.size | default "5Gi" }}
+  storageClassName: {{ .Values.mysql.persistence.storageClass | default "gp2" }}
+{{- end }}
