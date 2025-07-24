@@ -1,0 +1,35 @@
+ghost:
+  image: ghost:5
+  replicaCount: 1
+  url: https://blog.cloudmasa.com
+  database:
+    host: mysql
+    user: ghost
+    password: ghostpass
+    name: ghostdb
+  persistence:
+    size: 5Gi
+
+mysql:
+  image: mysql:8
+  rootPassword: rootpass
+  user: ghost
+  password: ghostpass
+  database: ghostdb
+  persistence:
+    size: 5Gi
+
+ingress:
+  enabled: true
+  className: alb
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+  hosts:
+    - host: blog.cloudmasa.com
+      paths:
+        - path: /
+          pathType: Prefix
