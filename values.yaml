@@ -9,7 +9,7 @@ ghost:
   persistence:
     enabled: true
     size: 5Gi
-    storageClass: gp2
+    storageClass: gp3
 
 mysql:
   image: mysql:8.0
@@ -21,7 +21,7 @@ mysql:
   persistence:
     enabled: true
     size: 5Gi
-    storageClass: gp2
+    storageClass: gp3
 
 ingress:
   enabled: true
