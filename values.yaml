@@ -6,6 +6,11 @@ ghost:
   mysqlDatabase: ghostdb
   mysqlHost: ghost-mysql
 
+  persistence:
+    enabled: true
+    size: 5Gi
+    storageClass: gp2
+
 mysql:
   image: mysql:8.0
   rootPassword: rootpass
@@ -13,12 +18,12 @@ mysql:
   password: ghostpass
   database: ghostdb
 
-ingress:
-  enabled: true
-  host: blog.cloudmasa.com
-  acmArn: arn:aws:acm:us-east-1:YOUR_AWS_ACCOUNT_ID:certificate/YOUR_CERTIFICATE_ID
-
   persistence:
     enabled: true
     size: 5Gi
     storageClass: gp2
+
+ingress:
+  enabled: true
+  host: blog.cloudmasa.com
+  acmArn: arn:aws:acm:us-east-1:YOUR_AWS_ACCOUNT_ID:certificate/YOUR_CERTIFICATE_ID
