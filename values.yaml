@@ -27,7 +27,8 @@ ingress:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     alb.ingress.kubernetes.io/target-type: ip
-    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/listen-ports: |
+      [{"HTTPS":443}]
   hosts:
     - host: blog.cloudmasa.com
       paths:
