@@ -15,24 +15,21 @@ spec:
       containers:
         - name: ghost
           image: {{ .Values.ghost.image }}
-          ports:
-            - containerPort: 2368
           env:
             - name: url
               value: {{ .Values.ghost.url }}
             - name: database__client
-              value: "mysql"
+              value: mysql
             - name: database__connection__host
-              value: {{ .Values.ghost.mysql.host }}
+              value: {{ .Values.ghost.mysqlHost }}
             - name: database__connection__user
-              value: {{ .Values.ghost.mysql.user }}
+              value: {{ .Values.ghost.mysqlUser }}
             - name: database__connection__password
-              valueFrom:
-                secretKeyRef:
-                  name: ghost-secret
-                  key: mysql-password
+              value: {{ .Values.ghost.mysqlPassword }}
             - name: database__connection__database
-              value: {{ .Values.ghost.mysql.database }}
+              value: {{ .Values.ghost.mysqlDatabase }}
+          ports:
+            - containerPort: 2368
           volumeMounts:
             - name: ghost-content
               mountPath: /var/lib/ghost/content
