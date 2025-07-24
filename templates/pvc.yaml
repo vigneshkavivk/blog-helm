@@ -1,4 +1,4 @@
-{{- if .Values.ghost.persistence.enabled }}
+{{- if and (.Values.ghost) (hasKey .Values.ghost "persistence") (hasKey .Values.ghost.persistence "enabled") (eq .Values.ghost.persistence.enabled true) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -14,7 +14,7 @@ spec:
 
 ---
 
-{{- if .Values.mysql.persistence.enabled }}
+{{- if and (.Values.mysql) (hasKey .Values.mysql "persistence") (hasKey .Values.mysql.persistence "enabled") (eq .Values.mysql.persistence.enabled true) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
