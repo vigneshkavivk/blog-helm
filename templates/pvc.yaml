@@ -9,7 +9,7 @@ spec:
   resources:
     requests:
       storage: {{ .Values.ghost.persistence.size | default "5Gi" }}
-  storageClassName: {{ .Values.ghost.persistence.storageClass | default "gp2" }}
+  storageClassName: {{ .Values.ghost.persistence.storageClass | default "ebs-gp3-csi" }}
 {{- end }}
 
 ---
@@ -25,5 +25,5 @@ spec:
   resources:
     requests:
       storage: {{ .Values.mysql.persistence.size | default "5Gi" }}
-  storageClassName: {{ .Values.mysql.persistence.storageClass | default "gp2" }}
+  storageClassName: {{ .Values.mysql.persistence.storageClass | default "ebs-gp3-csi" }}
 {{- end }}
