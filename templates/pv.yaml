@@ -12,6 +12,9 @@ spec:
   awsElasticBlockStore:
     volumeID: vol-0ef04402ddec6c3b7  # Replace with your actual EBS volume ID
     fsType: ext4
+  claimRef:
+    namespace: ghost
+    name: ghost-pvc
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -27,3 +30,6 @@ spec:
   awsElasticBlockStore:
     volumeID: vol-0b45d1590c4e3c2ac  # Replace with actual EBS volume ID
     fsType: ext4
+  claimRef:
+    namespace: ghost
+    name: mysql-pvc
