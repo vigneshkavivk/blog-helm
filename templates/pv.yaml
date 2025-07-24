@@ -9,9 +9,6 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: ebs-gp3-csi
-  csi:
-    driver: ebs.csi.aws.com
-    volumeHandle: vol-04da706eb4d43c083  # <-- Replace with actual EBS volume ID
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -24,9 +21,6 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: ebs-gp3-csi
-  csi:
-    driver: ebs.csi.aws.com
-    volumeHandle: vol-04da706eb4d43c083  # Your actual EBS volume ID
   claimRef:
     namespace: ghost
     name: mysql-pvc
