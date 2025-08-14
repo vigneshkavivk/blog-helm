@@ -1,0 +1,24 @@
+{
+    "name": "jenkins",
+    "type": "http",
+    "base_url": "http://jenkins.example.com",
+    "auth": {
+        "type": "basic",
+        "username": "your-username",
+        "password": "your-api-token"
+    },
+    "tools": [
+        {
+            "name": "jenkins.get_jobs",
+            "description": "Get list of all Jenkins jobs",
+            "endpoint": "/api/json",
+            "method": "GET"
+        },
+        {
+            "name": "jenkins.trigger_build",
+            "description": "Trigger a Jenkins build",
+            "endpoint": "/job/{job_name}/build",
+            "method": "POST"
+        }
+    ]
+}
