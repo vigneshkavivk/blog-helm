@@ -1,5 +1,0 @@
-apiVersion: v2
-name: ghost-blog
-description: A Helm chart to deploy Ghost blog with MySQL and HTTPS
-version: 1.0.0
-appVersion: "5.80.0"
