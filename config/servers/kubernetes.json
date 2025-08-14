@@ -1,0 +1,22 @@
+{
+    "name": "kubernetes",
+    "type": "kubeconfig",
+    "config_path": "~/.kube/config",
+    "context": "default",
+    "tools": [
+        {
+            "name": "k8s.get_pods",
+            "description": "Get pods in a namespace",
+            "resource": "pods",
+            "action": "list",
+            "namespace": "{namespace}"
+        },
+        {
+            "name": "k8s.get_deployments",
+            "description": "Get deployments in a namespace",
+            "resource": "deployments",
+            "action": "list",
+            "namespace": "{namespace}"
+        }
+    ]
+}
